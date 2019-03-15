@@ -31,11 +31,11 @@ tariffs = {
 
 def main(tariff):
 	auth_url = get_auth_page()
-	time.sleep(3)
+	time.sleep(1)
 	auth(auth_url, 'sahajatomsk@gmail.com', '05may1970')
-	time.sleep(3)
+	time.sleep(1)
 	page_tariff = get_tariff_page()
-	time.sleep(3)
+	time.sleep(1)
 	change_tariff(page_tariff, tariff)
 
 
