@@ -3,4 +3,4 @@ from bs4 import BeautifulSoup
 import time
 import yota
 
-yota.main(yota.tariffs['650'])
+yota.main(yota.tariffs['1000'])

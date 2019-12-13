@@ -1,6 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import json
+
+
+with open("auth_data.json", "r") as read_file:
+    auth_data = json.load(read_file)
+
 
 session = requests.Session()
 headers = {
@@ -32,7 +38,7 @@ tariffs = {
 def main(tariff):
 	auth_url = get_auth_page()
 	time.sleep(1)
-	auth(auth_url, 'sahajatomsk@gmail.com', '05may1970')
+	auth(auth_url, auth_data['login'], auth_data['password'])
 	time.sleep(1)
 	page_tariff = get_tariff_page()
 	time.sleep(1)
@@ -58,7 +64,7 @@ def auth(url, login, password):
 		'gotoOnFail': 'https%3A%2F%2Fmy.yota.ru%3A443%2Fselfcare%2FloginError',
 		'org': 'customer',
 		'ForceAuth': 'true',
-		'login': login, #'sahajatomsk%40gmail.com'
+		'login': login,
 		'password': password
 	}
 	session.post(url, auth_data, headers=headers)
